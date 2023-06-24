@@ -171,7 +171,7 @@ def get_classification(input_data):
     model_input.append(input_data[12:17])
     model_input.append(input_data[15:])
     model_input = torch.FloatTensor(np.array(model_input))
-    preds = torch.sigmoid(model(model_input)).gt(0.5).int().data.numpy()
+    preds = torch.sigmoid(model(model_input)).gt(0.7).int().data.numpy()
     return int(preds.sum() >= 5)
 
 def infer(ears_norm, mars_norm, pucs_norm, moes_norm):
@@ -196,7 +196,7 @@ def infer(ears_norm, mars_norm, pucs_norm, moes_norm):
     cap = cv2.VideoCapture(0)
     while cap.isOpened():
         success, image = cap.read()
-
+        
         i += 1
         if i % 100 == 0:
             gc.collect()
@@ -242,7 +242,7 @@ def infer(ears_norm, mars_norm, pucs_norm, moes_norm):
             print ('got label from drowsiness detection', label)
         if phone_model_result == 1:  
             label = 2
-            frame_before_run = 0
+            frame_before_run = -5
             client.sock.send(str(label).encode())
 
         if label is not None:

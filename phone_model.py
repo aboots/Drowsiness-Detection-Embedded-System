@@ -20,7 +20,7 @@ texts = [["a photo of a person talking to phone", "phone", "mobile", "cellphone"
 def infere_phone(image):
 
     image = Image.fromarray(image)
-    image = image.resize((384, 384))
+    # image = image.resize((384, 384))
     
     inputs = processor(text=texts, images=image, return_tensors="pt")
     outputs = model(**inputs)
@@ -36,7 +36,7 @@ def infere_phone(image):
 
     # Print detected objects and rescaled box coordinates
     c = 0
-    score_threshold = 0.15
+    score_threshold = 0.17
     for box, score, label in zip(boxes, scores, labels):
         box = [round(i, 2) for i in box.tolist()]
         if score >= score_threshold:
