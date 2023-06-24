@@ -13,4 +13,4 @@ Then you can run your client on your laptop with this command:
 
 This module opens your webcam and then it has two phases. At first it calibrates your face and then it begins to work. this module outputs one of the following three classes: Drowsy, Alert, and phone. You can detect talking or working with phone, yawning, or sleepy eyes.
 
-![Example](https://drive.google.com/file/d/1DC2z2TCAvN5xIQA3L9dM8W-RWLwh0wZk/view?usp=drive_link)
+![Example](https://s8.uupload.ir/files/test_tebs.png)
